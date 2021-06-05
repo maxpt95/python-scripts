@@ -45,7 +45,7 @@ def unblockWebsites():
     """
     copyfile(COPY_HOST_FILENAME, HOST_FILENAME)
     
-#we make a copy of the original hosts file, so we can restablish when we don't want the sites to be blocked any longer
+#we make a copy of the original hosts file, so we can restablish it when we don't want the sites to be blocked any longer
 copyfile(HOST_FILENAME, COPY_HOST_FILENAME)
 
 websitesList = loadWebsites()
@@ -54,4 +54,5 @@ blockWebsites(websitesList)
 checkUnblock = input("\nEnter unblock to access the websites listed again: ")
 if checkUnblock.lower() == "unblock":
     unblockWebsites()
+    remove(COPY_HOST_FILENAME)
     
